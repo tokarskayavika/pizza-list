@@ -1,5 +1,3 @@
-import React from "react";
-
 import {
   Table,
   TableHead,
@@ -34,7 +32,7 @@ function ItemsList() {
       {items.length ? (
         <>
           <h2 className="list-header">Calculation</h2>
-          <Table sx={{ minWidth: 650 }}>
+          <Table sx={{ minWidth: 650, maxWidth: 1000 }}>
             <TableHead>
               <TableRow>
                 {columnNames.map((name) => (

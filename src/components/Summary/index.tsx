@@ -1,5 +1,3 @@
-import React from "react";
-
 import { TableCell, TableRow } from "@mui/material";
 import { useSelector } from "react-redux";
 import { getSummary } from "../../store/selectors";

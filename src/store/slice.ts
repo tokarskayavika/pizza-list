@@ -1,5 +1,5 @@
-import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { cachingFetch } from "../services";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { fetchProducts, fetchRestaurants } from "./thunks";
 import { State, Product, Restaurant } from "./types";
 
 export const initialState: State = {
@@ -12,26 +12,6 @@ export const initialState: State = {
   selectedItems: [],
   prices: {},
 };
-
-export const fetchRestaurants = createAsyncThunk(
-  "fetchRestaurants",
-  async () => {
-    const response: Restaurant[] = await cachingFetch(
-      "https://private-anon-da5e25541c-pizzaapp.apiary-mock.com/restaurants/"
-    );
-    return response;
-  }
-);
-
-export const fetchProducts = createAsyncThunk(
-  "fetchProducts",
-  async (restaurantId: number) => {
-    const response: Product[] = await cachingFetch(
-      `https://private-anon-da5e25541c-pizzaapp.apiary-mock.com/restaurants/${restaurantId}/menu?category=Pizza&orderBy=name`
-    );
-    return { response, restaurantId };
-  }
-);
 
 const appSlice = createSlice({
   name: "app",

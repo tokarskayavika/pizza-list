@@ -1,7 +1,8 @@
 import { Middleware } from "redux";
 import { createListenerMiddleware } from "@reduxjs/toolkit";
-import { fetchProducts, selectRestaurant } from "./slice";
+import { selectRestaurant } from "./slice";
 import { State } from "./types";
+import { fetchProducts } from "./thunks";
 
 export const persistenceMiddleware: Middleware<{}, State> =
   (store) => (next) => (action) => {
@@ -10,9 +11,9 @@ export const persistenceMiddleware: Middleware<{}, State> =
     localStorage.setItem("state", JSON.stringify(state));
   };
 
-export const listenerMiddleware = createListenerMiddleware();
+export const fetchProductsListener = createListenerMiddleware();
 
-listenerMiddleware.startListening({
+fetchProductsListener.startListening({
   actionCreator: selectRestaurant,
   effect: async (action, listenerApi) => {
     if (!action.payload) return;

@@ -1,11 +1,8 @@
-import React from "react";
-
 import { Button } from "@mui/material";
 import Select from "react-select";
 
 import { useDispatch, useSelector } from "react-redux";
 import {
-  fetchRestaurants,
   selectRestaurant,
   selectPizza,
   addSelectedItem,
@@ -22,6 +19,7 @@ import { AppDispatch } from "../../store";
 import { Product, Restaurant } from "../../store/types";
 
 import "./Form.css";
+import { fetchRestaurants } from "../../store/thunks";
 
 function Form() {
   const dispatch = useDispatch<AppDispatch>();
