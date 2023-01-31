@@ -1,0 +1,12 @@
+.form {
+  max-width: 300px;
+  margin: 30px 0;
+}
+
+.form-header {
+  font-size: 20px;
+}
+
+.select {
+  margin: 12px 0;
+}
