@@ -10,7 +10,7 @@ const Summary = () => {
   return (
     <TableRow>
       <TableCell colSpan={2}>Summary</TableCell>
-      <TableCell colSpan={2}>{summary}</TableCell>
+      <TableCell colSpan={2}>{summary} USD</TableCell>
     </TableRow>
   );
 };

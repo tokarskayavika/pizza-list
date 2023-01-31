@@ -37,7 +37,7 @@ function Form() {
       return;
     }
 
-    dispatch(fetchRestaurants()); // if !value - cached
+    dispatch(fetchRestaurants());
   };
 
   const changeRestaurant = (option: Restaurant | null) => {
